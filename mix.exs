@@ -3,11 +3,34 @@ defmodule CorrelationVector.MixProject do
 
   def project do
     [
-      app: :correlation_vector,
+      app: :ex_correlation_vector,
       version: "0.1.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      source_url: "https://github.com/seamlyapp/ex_correlation_vector",
+      description: description(),
+      deps: deps(),
+      package: package(),
+      docs: docs()
+    ]
+  end
+
+  def docs() do
+    [
+      main: "readme",
+      extras: ["README.md"]
+    ]
+  end
+
+  def description() do
+    "CorrelationVector provides the Elixir implementation of the Microsoft CorrelationVector protocol"
+  end
+
+  def package() do
+    [
+      name: "ex_correlation_vector",
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/seamlyapp/ex_correlation_vector"}
     ]
   end
 
@@ -21,8 +44,7 @@ defmodule CorrelationVector.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:ex_doc, "~> 0.27", only: :dev, runtime: false}
     ]
   end
 end
